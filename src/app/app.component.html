@@ -31,25 +31,42 @@
 </md-toolbar>
 <md-tab-group>
   <md-tab label="Gallery">
-    <md-card *ngFor="let spaceScreen of spaceScreens; let i = index">
-      
-      <img md-card-image
-           src="{{ spaceScreen.img }}">
-      <md-card-content>
-        {{ spaceScreen.description }}
-      </md-card-content>
-      <md-card-actions align="start">
-        <button md-button
-                (click)="likeMe(i)">
-          <i class="material-icons md-18" [class.red-color]="spaceScreen.liked == '1'">favorite</i> Loice 
-        </button>
-        <button md-button
-                (click)="deleteMe(i)">
-          <i class="material-icons md-18">delete</i> Delete me
-        </button> 
-      </md-card-actions>
-     
-    </md-card>
+    <md-grid-list cols="3"
+                  [style.height]="'450px'"
+                  [gutterSize]="'10px'">
+      <md-grid-tile *ngFor="let spaceScreen of spaceScreens; let i = index"
+                    [colspan]="1"
+                    [rowspan]="1">
+        <md-card>
+          <img md-card-image
+               src="{{ spaceScreen.img }}">
+          <md-card-content>
+            {{
+            spaceScreen.description
+            }}
+          </md-card-content>
+          <md-card-actions align="start">
+            <button md-button
+                    (click)="likeMe(i)">
+              <i class="material-icons md-18"
+                 [class.red-color]="spaceScreen.liked == '1'">
+                favorite
+              </i>
+              Loice
+            </button>
+            <button md-button
+                    (click)="deleteMe(i)">
+              commit
+              <i class="material-icons md-18">
+                delete
+              </i>
+              Delete
+              me
+            </button>
+          </md-card-actions>
+        </md-card>
+      </md-grid-tile>
+    </md-grid-list>
   </md-tab>
   <md-tab label="Settings">
     <div id="page-padding">
@@ -64,8 +81,9 @@
                thumbLabel="true" 
                value="18">
       
-    </md-slider>
-    
+    </md-slider> 
+
+
     <md-slide-toggle [(ngModel)]="modelName"
                      (change)="onChange($event)"
                      color="primary">
