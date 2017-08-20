@@ -6,6 +6,7 @@ import {FormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
 import "@angular/animations";
 import {MaterialModule} from "@angular/material";
+import {FlexLayoutModule} from "@angular/flex-layout";
 import {AppComponent} from "./app.component";
 import "hammerjs";
 @NgModule({                
@@ -17,11 +18,12 @@ import "hammerjs";
     BrowserAnimationsModule,
 //       ^^^^^^^^^^^^^^^^^^^^^^
     FormsModule,                     
-    HttpModule, 
-    MaterialModule  
+    HttpModule,
+    MaterialModule,
+    FlexLayoutModule
   ],
   providers: [],             
   bootstrap: [AppComponent]
 })
 export class AppModule {
-}
+}                                    

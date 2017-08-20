@@ -31,12 +31,12 @@
 </md-toolbar>
 <md-tab-group>
   <md-tab label="Gallery">
-    <md-grid-list cols="3"
-                  [style.height]="'450px'"
-                  [gutterSize]="'10px'">
+    <md-grid-list fxLayout.gt-sm="row"
+                  #gridView
+                  [cols]="3"
+                  rowHeight="500px">
       <md-grid-tile *ngFor="let spaceScreen of spaceScreens; let i = index"
-                    [colspan]="1"
-                    [rowspan]="1">
+                    fxLayoutGap.gt-sm="10px">
         <md-card>
           <img md-card-image
                src="{{ spaceScreen.img }}">
