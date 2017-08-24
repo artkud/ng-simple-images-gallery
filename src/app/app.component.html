@@ -31,13 +31,17 @@
 </md-toolbar>
 <md-tab-group>
   <md-tab label="Gallery">
-    <md-grid-list fxLayout.gt-sm="row"
-                  #gridView
-                  [cols]="3"
-                  rowHeight="500px">
-      <md-grid-tile *ngFor="let spaceScreen of spaceScreens; let i = index"
-                    fxLayoutGap.gt-sm="10px">
-        <md-card>
+    <div class="gallery-container"
+         fxFlex="100%"
+         fxLayout="row wrap"
+         fxLayoutAlign="center start"
+         fxLayoutGap="10px">
+      
+        <md-card class="gallery-md-card"
+                 fxLayout="column"
+                 fxFlex="1 1 calc(33.3333333% - 10px)"
+                 fxFlexAlign="stretch"
+                 *ngFor="let spaceScreen of spaceScreens; let i = index">
           <img md-card-image
                src="{{ spaceScreen.img }}">
           <md-card-content>
@@ -65,11 +69,11 @@
             </button>
           </md-card-actions>
         </md-card>
-      </md-grid-tile>
-    </md-grid-list>
+    </div>
   </md-tab>
   <md-tab label="Settings">
-    <div id="page-padding">
+    <div class="settings-container"
+         id="page-padding">
     <h1>Settings</h1>
     <p>Here you can control the various settings associated with your app. There's no need to hit a save button, as the values are updated automatically.</p>
     <label>Number of Thumbnails</label>
